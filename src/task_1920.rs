@@ -26,7 +26,7 @@ impl OtherSolution {
     // memory O(n) runtime ~4ms
     pub fn build_array_1(nums: Vec<i32>) -> Vec<i32> {
         (0..nums.len()) // Iterator Range<usize>
-        .map(|i| nums[nums[i] as usize]) // Iterator
+        .map(|i| nums[nums[i] as usize]) 
         .collect() // make Vector from Iterator
     }
 
@@ -37,16 +37,19 @@ impl OtherSolution {
         (0..l as usize).for_each(|i| nums[i] /= l);
         nums
     }
-    
+
     // with bit operation 
     // memory O(1) runtime ~1ms
     // It's very interested
+    // This only works if nums.len <= 1023
     pub fn build_array_3(mut nums: Vec<i32>) -> Vec<i32> {
-        let mask = 1023;
+        let mask = 1023; // 0b00000000000000000000001111111111
         (0..nums.len()).for_each(|i| nums[i] |= (nums[nums[i] as usize] & mask) << 10);
         (0..nums.len()).for_each(|i| nums[i] >>= 10);
         nums
     }
+
+    // method self.for_each(|i| {}) equal for i in self {} 
 
 
 }
