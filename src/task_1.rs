@@ -10,7 +10,18 @@ use std::collections::HashMap;
 impl Solution {
 
     pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
-        let mut hash: HashMap<i32, i32> = HashMap::new();
+
+        // before 
+        // let mut hash: HashMap<i32, i32> = HashMap::new();
+
+        // after
+        let mut hash: HashMap<i32, i32> = HashMap::with_capacity(nums.len());
+        
+        // if the exact size is know, 
+        // it's better to use 
+        // HashMap::with_capacity(size) 
+        // for initialization
+
         for (i2, num) in nums.into_iter().enumerate() {
             match hash.get(&(target - num)) {
                 Some(i1) => { return vec![*i1, i2 as i32] }
@@ -18,7 +29,7 @@ impl Solution {
             }
         }
         // dead code {
-        vec![0, 0]
+        vec![]
         // }
     }
 }
