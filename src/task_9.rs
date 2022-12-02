@@ -42,6 +42,5 @@ mod tests {
         assert_eq!(Solution::is_palindrome(1123211), true);
         assert_eq!(Solution::is_palindrome(-10100101), false);
         assert_eq!(Solution::is_palindrome(2147447412), true);
-
     }
 }
