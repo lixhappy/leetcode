@@ -16,8 +16,8 @@ impl Solution {
 
         // after
         let mut hash: HashMap<i32, i32> = HashMap::with_capacity(nums.len());
-        
-        // if the exact size is know, 
+
+        // if the exact max size is know, 
         // it's better to use 
         // HashMap::with_capacity(size) 
         // for initialization
